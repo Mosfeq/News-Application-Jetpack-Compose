@@ -1,7 +1,5 @@
 package com.example.newsapplicationjetpackcompose.presentation.screens.saved_news_list
 
-import android.speech.tts.TextToSpeech
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,9 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -28,7 +24,6 @@ import com.example.newsapplicationjetpackcompose.presentation.screens.saved_news
 import com.example.newsapplicationjetpackcompose.presentation.screens.saved_news_list.components.SwipeToDismissItem
 import com.example.newsapplicationjetpackcompose.util.UiState
 import java.net.URLEncoder
-import java.util.Locale
 
 @Composable
 fun SavedNewsListScreen(
@@ -40,9 +35,6 @@ fun SavedNewsListScreen(
     val savedNewsListState by viewModel.savedNewsListState.collectAsStateWithLifecycle()
 
     val ttsManager = remember { TTSManager(context) }
-
-//    val textToSpeech =  remember { mutableStateOf<TextToSpeech?>(null) }
-//    var isTTSReady by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) { ttsManager.bindService() }
 
@@ -86,11 +78,6 @@ fun SavedNewsListScreen(
                                         val title = it.title ?: "News Article"
                                         ttsManager.startTextToSpeech(textToRead, title)
                                         Toast.makeText(context, "Starting text to speech...",Toast.LENGTH_SHORT). show()
-//                                        if (isTTSReady){
-//                                            textToSpeech.value?.speak(it.description, TextToSpeech.QUEUE_FLUSH, null)
-//                                        } else {
-//                                            Toast.makeText(context, "Text-to-Speech is initializing...", Toast.LENGTH_SHORT).show()
-//                                        }
                                     }
                                 )
                             }
@@ -122,23 +109,5 @@ fun SavedNewsListScreen(
             }
         }
     }
-
-//    LaunchedEffect(key1 = Unit) {
-//        if (textToSpeech.value == null) {
-//            textToSpeech.value = TextToSpeech(context) { status ->
-//                if (status == TextToSpeech.SUCCESS) {
-//                    textToSpeech.value?.language = Locale.getDefault()
-//                    isTTSReady = true
-//                }
-//            }
-//        }
-//    }
-//
-//    DisposableEffect(key1 = Unit) {
-//        onDispose {
-//            textToSpeech.value?.stop()
-//            textToSpeech.value?.shutdown()
-//        }
-//    }
 
 }
