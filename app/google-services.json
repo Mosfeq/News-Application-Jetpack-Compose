@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "589844468643",
+    "firebase_url": "https://news-application-5189e-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "news-application-5189e",
+    "storage_bucket": "news-application-5189e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589844468643:android:0de3accd27b3a866778016",
+        "android_client_info": {
+          "package_name": "com.example.newsapplicationjetpackcompose"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUN8W_d2E7mfi1VL7ZX3oJhNUnbX1qyJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
