@@ -79,7 +79,6 @@ fun SavedNewsListItem(
                 Icon(Icons.Sharp.PlayArrow, "")
             }
         }
-        Divider(modifier = Modifier.padding(bottom = 10.dp))
     }
 }
 
