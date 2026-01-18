@@ -45,6 +45,43 @@ Pie chart displaying read vs saved articles
 
 -------
 
+### Tech Stack 🛠 
+#### Android
+
+- Kotlin
+
+- Jetpack Compose
+
+- MVVM Architecture
+
+- StateFlow / ViewModel
+
+- Text to Speech (TTS)
+
+#### System & Background Components
+
+- Foreground Service
+
+- Bound Service
+
+- Broadcast Receiver
+
+- WorkManager
+
+- NotificationManager
+
+#### Backend & Libraries
+
+- News API – news data source
+
+- Firebase – saved articles
+
+- Preference DataStore – user preferences
+
+- YCharts – data visualisation
+
+-------
+
 ### Architecture 🏗 
 
 MVVM (Model–View–ViewModel) for clear separation of concerns
