@@ -91,7 +91,6 @@ fun NewsListItem(
                     contentScale = ContentScale.Crop
                 )
 
-                // Gradient overlay for better text readability
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()

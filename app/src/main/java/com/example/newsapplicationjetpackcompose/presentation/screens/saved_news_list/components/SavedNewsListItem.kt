@@ -1,5 +1,6 @@
 package com.example.newsapplicationjetpackcompose.presentation.screens.saved_news_list.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -26,6 +27,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -46,16 +49,16 @@ fun SavedNewsListItem(
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(140.dp)
+            .height(150.dp)
             .padding(horizontal = 16.dp, vertical = 6.dp)
             .clickable { onItemClick(article) },
         elevation = CardDefaults.cardElevation(
-            defaultElevation = 2.dp,
+            defaultElevation = 3.dp,
             pressedElevation = 6.dp
         ),
-        shape = RoundedCornerShape(12.dp),
+        shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant
+            containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
         Row(
@@ -63,7 +66,7 @@ fun SavedNewsListItem(
         ) {
             Box(
                 modifier = Modifier
-                    .width(140.dp)
+                    .width(150.dp)
                     .fillMaxWidth()
             ) {
                 AsyncImage(
@@ -71,9 +74,24 @@ fun SavedNewsListItem(
                     contentDescription = "Article thumbnail",
                     modifier = Modifier
                         .fillMaxHeight()
-                        .width(140.dp)
-                        .clip(RoundedCornerShape(topStart = 12.dp, bottomStart = 12.dp)),
+                        .width(150.dp)
+                        .clip(RoundedCornerShape(topStart = 16.dp, bottomStart = 16.dp)),
                     contentScale = ContentScale.Crop
+                )
+                Box(
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .width(150.dp)
+                        .background(
+                            Brush.horizontalGradient(
+                                colors = listOf(
+                                    Color.Transparent,
+                                    Color.Black.copy(alpha = 0.1f)
+                                ),
+                                startX = 0f,
+                                endX = 150f
+                            )
+                        )
                 )
             }
 
@@ -81,33 +99,38 @@ fun SavedNewsListItem(
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxHeight()
-                    .padding(12.dp),
+                    .padding(14.dp),
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
                 Column(
                     modifier = Modifier.weight(1f)
                 ) {
                     article.source?.name?.let { sourceName ->
-                        Text(
-                            text = sourceName.uppercase(),
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.primary,
-                            fontWeight = FontWeight.Bold,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis
-                        )
+                        Surface(
+                            shape = RoundedCornerShape(6.dp),
+                            color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.6f)
+                        ){
+                            Text(
+                                text = sourceName.uppercase(),
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.primary,
+                                fontWeight = FontWeight.Bold,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+                        }
                         Spacer(modifier = Modifier.height(4.dp))
                     }
 
                     article.title?.let { title ->
                         Text(
                             text = title,
-                            style = MaterialTheme.typography.bodyMedium,
-                            fontWeight = FontWeight.SemiBold,
+                            style = MaterialTheme.typography.bodyLarge,
+                            fontWeight = FontWeight.Bold,
                             maxLines = 3,
                             overflow = TextOverflow.Ellipsis,
                             color = MaterialTheme.colorScheme.onSurface,
-                            lineHeight = MaterialTheme.typography.bodyMedium.lineHeight
+                            lineHeight = MaterialTheme.typography.bodyLarge.lineHeight
                         )
                     }
                 }
@@ -128,16 +151,22 @@ fun SavedNewsListItem(
                         )
                     } ?: Spacer(modifier = Modifier.weight(1f))
 
-                    IconButton(
-                        onClick = { onT2SClick(article) },
-                        modifier = Modifier.size(36.dp)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Rounded.PlayArrow,
-                            contentDescription = "Play audio",
-                            tint = MaterialTheme.colorScheme.primary,
-                            modifier = Modifier.size(24.dp)
-                        )
+                    Surface(
+                        modifier = Modifier.size(38.dp),
+                        shape = RoundedCornerShape(10.dp),
+                        color = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.4f)
+                    ){
+                        IconButton(
+                            onClick = { onT2SClick(article) },
+                            modifier = Modifier.size(38.dp)
+                        ) {
+                            Icon(
+                                imageVector = Icons.Rounded.PlayArrow,
+                                contentDescription = "Play audio",
+                                tint = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.size(22.dp)
+                            )
+                        }
                     }
                 }
             }
