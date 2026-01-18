@@ -126,44 +126,48 @@ fun NewsListScreen(
 
             Spacer(modifier = Modifier.height(12.dp))
 
-            Button(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(50.dp),
-                onClick = {
-                    if (userInput.isNotBlank()) {
-                        viewModel.getNewsList(userInput)
-                        hasSearched = true
-                        userInput = ""
-                    } else {
-                        Toast.makeText(context, "Type News to Search", Toast.LENGTH_SHORT).show()
-                    }
-                },
-                shape = RoundedCornerShape(16.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.primary,
-                    contentColor = MaterialTheme.colorScheme.onPrimary
-                ),
-                elevation = ButtonDefaults.buttonElevation(
-                    defaultElevation = 2.dp,
-                    pressedElevation = 6.dp
-                )
-            ) {
-                Row(
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center
+            ){
+                Button(
+                    modifier = Modifier
+                        .height(50.dp),
+                    onClick = {
+                        if (userInput.isNotBlank()) {
+                            viewModel.getNewsList(userInput)
+                            hasSearched = true
+                            userInput = ""
+                        } else {
+                            Toast.makeText(context, "Type News to Search", Toast.LENGTH_SHORT).show()
+                        }
+                    },
+                    shape = RoundedCornerShape(16.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        contentColor = MaterialTheme.colorScheme.onPrimary
+                    ),
+                    elevation = ButtonDefaults.buttonElevation(
+                        defaultElevation = 2.dp,
+                        pressedElevation = 6.dp
+                    )
                 ) {
-                    Text(
-                        text = "Search Articles",
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.SemiBold
-                    )
-                    Spacer(modifier = Modifier.size(8.dp))
-                    Icon(
-                        Icons.Filled.Search,
-                        contentDescription = "Search Icon",
-                        modifier = Modifier.size(20.dp)
-                    )
+                    Row(
+                        horizontalArrangement = Arrangement.Center,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = "Search Articles",
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.SemiBold
+                        )
+                        Spacer(modifier = Modifier.size(8.dp))
+                        Icon(
+                            Icons.Filled.Search,
+                            contentDescription = "Search Icon",
+                            modifier = Modifier.size(20.dp)
+                        )
+                    }
                 }
             }
         }
