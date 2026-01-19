@@ -1,39 +1,44 @@
-# News Flow 📰
+# 📰 News Flow
 
 News Flow is a modern Android application that allows users to search, read, listen to, and save news articles using data retrieved from the News API.
 Built with Jetpack Compose and MVVM architecture, the app focuses on accessibility, background playback, and user engagement through smart notifications and visual insights.
 
 -------
 
-### News Search 🔍
+### News Search 🔍 
 
 Search for the latest news articles via the News API
 
 Clean and responsive UI built entirely with Jetpack Compose
+<br>
 
 ### Save Articles 🔖 
 
 Save articles for future reading
 
 Saved articles are stored securely using Firebase
+<br>
 
 ### Text-to-Speech Narration 🔊 
 
 Listen to article summaries using Text to Speech
 
 Narration continues when the app is minimised or closed
+<br>
 
 ### Background & System Handling ⚙️ 
 
 Foreground Service and Bound Service to maintain active narration
 
 Broadcast Receiver detects incoming calls or competing audio and automatically stops narration
+<br>
 
 ### Smart Notifications ⏰ 
 
 Daily reading reminders using WorkManager
 
 Notifications delivered via NotificationManager
+<br>
 
 ### Reading Insights 📊 
 
@@ -45,7 +50,7 @@ Pie chart displaying read vs saved articles
 
 -------
 
-### Tech Stack 🛠 
+## 🛠 Tech Stack
 #### Android
 
 - Kotlin
@@ -82,7 +87,7 @@ Pie chart displaying read vs saved articles
 
 -------
 
-### Architecture 🏗 
+## 🏗 Architecture
 
 MVVM (Model–View–ViewModel) for clear separation of concerns
 
@@ -94,7 +99,7 @@ Modular and scalable codebase
 
 -------
 
-## Getting Started 🚀
+## 🚀 Getting Started
 
 Clone the repository:
 
@@ -110,11 +115,11 @@ Build and run on an emulator or physical device
 
 -------
 
-## App Demo 🔗 
+## 🔗 App Demo 
 
 A short demo of News Flow showcasing article search, text-to-speech narration, background playback, and reading insights is available on LinkedIn:
 
-### Watch the demo on LinkedIn: 👉 
+👉 **Watch the demo on LinkedIn:**
 https://www.linkedin.com/posts/activity-7419087322660532224-Ad-Y?utm_source=share&utm_medium=member_desktop&rcm=ACoAADJ-7aYB4zbEAPnyTuZl4qx7zSSVG5tLCos
 
 -------
